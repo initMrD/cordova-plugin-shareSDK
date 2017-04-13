@@ -11,12 +11,85 @@
     <platform name="android">
     	<config-file parent="/*" target="res/xml/config.xml">
             <feature name="ShareSDK">
-                <param name="android-package" value="com.initmrd.cordova.plugin.ShareSDK"/>
+                <param name="android-package" value="com.initmrd.cordova.plugin.ShareSDK.ShareSDK"/>
             </feature>
         </config-file>
-        <source-file src="src/android/libs/" target-dir="libs" />
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.GET_TASKS" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+            <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+        </config-file>
 
-        <source-file src="src/android/ShareSDK.java" target-dir="src/com/initmrd/cordova/plugin"/>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+                    android:name="com.mob.tools.MobUIShell"
+                    android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:windowSoftInputMode="stateHidden|adjustResize" >
+
+                <intent-filter>
+                    <data android:scheme="tencent1106092730" />
+                    <action android:name="android.intent.action.VIEW" />
+                    <category android:name="android.intent.category.BROWSABLE" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+
+                <!-- 调用新浪原生SDK，需要注册的回调activity -->
+                <intent-filter>
+                    <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+
+                <!--集成line客户端登录授权，需要添如下格式的过滤器-->
+                <intent-filter>
+                    <data android:scheme="line.1477692153" />
+                    <action android:name="android.intent.action.VIEW"/>
+                    <category android:name="android.intent.category.BROWSABLE" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+
+            </activity>
+            <activity
+                    android:name=".wxapi.WXEntryActivity"
+                    android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:exported="true"
+                    android:screenOrientation="portrait" />
+        </config-file>
+
+        <source-file src="src/android/libs/MobCommons-2017.0322.0931.jar" target-dir="libs" />
+        <source-file src="src/android/libs/MobTools-2017.0322.0931.jar" target-dir="libs" />
+        <source-file src="src/android/libs/ShareSDK-Core-2.8.2.jar" target-dir="libs" />
+        <source-file src="src/android/libs/ShareSDK-QQ-2.8.2.jar" target-dir="libs" />
+        <source-file src="src/android/libs/ShareSDK-Wechat-2.8.2.jar" target-dir="libs" />
+        <source-file src="src/android/libs/ShareSDK-Wechat-Core-2.8.2.jar" target-dir="libs" />
+        <source-file src="src/android/libs/ShareSDK-Wechat-Favorite-2.8.2.jar" target-dir="libs" />
+        <source-file src="src/android/libs/ShareSDK-Wechat-Moments-2.8.2.jar" target-dir="libs" />
+
+        <source-file src="src/android/assets/ShareSDK.xml" target-dir="assets" />
+
+        <source-file src="src/android/res/drawable" target-dir="res" />
+        <source-file src="src/android/res/drawable-hdpi/ssdk_oks_ptr_ptr.png" target-dir="res/drawable-hdpi" />
+        <source-file src="src/android/res/drawable-xhdpi" target-dir="res" />
+
+        <source-file src="src/android/res/values/ssdk_instapaper_strings.xml" target-dir="res/values" />
+        <source-file src="src/android/res/values/ssdk_oks_color_drawables.xml" target-dir="res/values" />
+        <source-file src="src/android/res/values/ssdk_oks_strings.xml" target-dir="res/values" />
+        <source-file src="src/android/res/values/ssdk_strings.xml" target-dir="res/values" />
+        <source-file src="src/android/res/values-en" target-dir="res" />
+
+        <source-file src="src/android/src/cn/sharesdk" target-dir="src/cn"/>
+        <source-file src="src/android/src/com/initmrd/cordova/plugin/ShareSDK/wxapi" target-dir="src/com/initmrd/cordova/plugin/ShareSDK"/>
+        <source-file src="src/android/ShareSDK.java" target-dir="src/com/initmrd/cordova/plugin/ShareSDK"/>
     </platform>
     <!--<platform name="ios">-->
         <!--<config-file target="config.xml" parent="/*">-->
