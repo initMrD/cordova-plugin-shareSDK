@@ -4,10 +4,16 @@
     version="0.0.1">
     
     <name>ShareSDK</name>
-    
+
+    <preference name="MOB_APP_KEY" />
+    <preference name="QQ_APP_ID" />
+    <preference name="QQ_APP_KEY" />
+
+
     <js-module src="www/ShareSDK.js" name="ShareSDK">
         <clobbers target="ShareSDK" />
     </js-module>
+
     <platform name="android">
     	<config-file parent="/*" target="res/xml/config.xml">
             <feature name="ShareSDK">
@@ -37,7 +43,7 @@
                     android:windowSoftInputMode="stateHidden|adjustResize" >
 
                 <intent-filter>
-                    <data android:scheme="tencent1106092730" />
+                    <data android:scheme="tencent$QQ_APP_ID" />
                     <action android:name="android.intent.action.VIEW" />
                     <category android:name="android.intent.category.BROWSABLE" />
                     <category android:name="android.intent.category.DEFAULT" />
@@ -90,6 +96,16 @@
         <source-file src="src/android/src/cn/sharesdk" target-dir="src/cn"/>
         <source-file src="src/android/src/com/initmrd/cordova/plugin/ShareSDK/wxapi" target-dir="src/com/initmrd/cordova/plugin/ShareSDK"/>
         <source-file src="src/android/ShareSDK.java" target-dir="src/com/initmrd/cordova/plugin/ShareSDK"/>
+
+        <config-file target="assets/ShareSDK.xml" parent="/DevInfor">
+            <QQ
+                    Id="7"
+                    SortId="7"
+                    AppId="$QQ_APP_ID"
+                    AppKey="$QQ_APP_KEY"
+                    ShareByAppClient="true"
+                    Enable="true" />
+        </config-file>
     </platform>
     <!--<platform name="ios">-->
         <!--<config-file target="config.xml" parent="/*">-->

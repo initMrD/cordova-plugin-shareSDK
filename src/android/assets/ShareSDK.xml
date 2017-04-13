@@ -111,13 +111,7 @@
         Enable="true" />
     
 	<!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
-	<QQ
-        Id="7"
-        SortId="7"
-        AppId="1106092730"
-        AppKey="97YNpoJFo0xH5eLI"
-        ShareByAppClient="true"
-        Enable="true" />
+
     
     <Facebook
         Id="8"
