@@ -1,1 +1,2 @@
-# cordova-plugin-shareSDK
+# cordova-plugin-ShareSDK
+ShareSDK插件

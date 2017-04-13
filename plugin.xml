@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="cordova-plugin-shareSDK"
+    version="0.0.1">
+    
+    <name>ShareSDK</name>
+    
+    <js-module src="www/ShareSDK.js" name="ShareSDK">
+        <clobbers target="ShareSDK" />
+    </js-module>
+    <platform name="android">
+    	<config-file parent="/*" target="res/xml/config.xml">
+            <feature name="ShareSDK">
+                <param name="android-package" value="com.initmrd.cordova.plugin.ShareSDK"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/ShareSDK.java" target-dir="src/com/initmrd/cordova/plugin"/>
+    </platform>
+    <!--<platform name="ios">-->
+        <!--<config-file target="config.xml" parent="/*">-->
+            <!--<feature name="PluginDemo">-->
+                <!--<param name="ios-package" value="CDVPluginDemo"/>-->
+            <!--</feature>-->
+        <!--</config-file>-->
+        <!--<header-file src="src/ios/CDVPluginDemo.h"/>-->
+        <!--<source-file src="src/ios/CDVPluginDemo.m"/>-->
+    <!--</platform>-->
+    
+</plugin>
