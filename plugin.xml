@@ -107,14 +107,20 @@
                     Enable="true" />
         </config-file>
     </platform>
-    <!--<platform name="ios">-->
-        <!--<config-file target="config.xml" parent="/*">-->
-            <!--<feature name="PluginDemo">-->
-                <!--<param name="ios-package" value="CDVPluginDemo"/>-->
-            <!--</feature>-->
-        <!--</config-file>-->
-        <!--<header-file src="src/ios/CDVPluginDemo.h"/>-->
-        <!--<source-file src="src/ios/CDVPluginDemo.m"/>-->
-    <!--</platform>-->
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ShareSDK">
+                <param name="ios-package" value="CDVShareSDK"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/CDVShareSDK.h"/>
+        <source-file src="src/ios/CDVShareSDK.m"/>
+
+        <framework src="ShareSDK3" type="podspec" spec="~> 1.2.0"/>
+        <framework src="MOBFoundation" type="podspec" spec="~> 1.2.0"/>
+        <framework src="ShareSDK3/ShareSDKPlatforms/QQ" type="podspec" spec="~> 1.2.0"/>
+        <framework src="ShareSDK3/ShareSDKPlatforms/WeChat" type="podspec" spec="~> 1.2.0"/>
+    </platform>
     
 </plugin>
