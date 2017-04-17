@@ -117,10 +117,51 @@
         <header-file src="src/ios/CDVShareSDK.h"/>
         <source-file src="src/ios/CDVShareSDK.m"/>
 
-        <framework src="ShareSDK3" type="podspec" spec="~> 1.2.0"/>
-        <framework src="MOBFoundation" type="podspec" spec="~> 1.2.0"/>
-        <framework src="ShareSDK3/ShareSDKPlatforms/QQ" type="podspec" spec="~> 1.2.0"/>
-        <framework src="ShareSDK3/ShareSDKPlatforms/WeChat" type="podspec" spec="~> 1.2.0"/>
+        <framework src="libicucore.tbd"/>
+        <framework src="libz.tbd"/>
+        <framework src="libstdc++.tbd"/>
+        <framework src="JavaScriptCore.framework"/>
+        <framework src="libsqlite3.tbd"/>
+
+
+        <framework src="ShareSDK3" type="podspec" spec=""/>
+        <framework src="MOBFoundation" type="podspec" spec=""/>
+
+        <framework src="ShareSDK3/ShareSDKPlatforms/QQ" type="podspec" spec=""/>
+        <framework src="ShareSDK3/ShareSDKPlatforms/WeChat" type="podspec" spec=""/>
+
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CFBundleTypeRole</key>
+                    <string>Editor</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>tencent$QQ_APP_ID</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>mqqapi</string>
+                <string>mqqopensdkssologin</string>
+                <string>mqqopensdkapiv2</string>
+                <string>wtloginmqq2</string>
+                <string>mqqopensdkapiv3</string>
+                <string>mqq</string>
+                <string>mqqwpa</string>
+            </array>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSAllowsArbitraryLoads</key>
+                <true/>
+            </dict>
+        </config-file>
+
     </platform>
     
 </plugin>
