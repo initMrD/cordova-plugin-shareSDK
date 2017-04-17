@@ -1,9 +1,9 @@
 # cordova-plugin-ShareSDK
 ### ShareSDK插件 主要针对第三方登陆这块内容,暂时只支持QQ
-## 授权申请:
+## 授权申请：
 - Mob官网：http://www.mob.com/
 - QQ开放平台：http://open.qq.com/
-## 安装插件:
+## 安装插件：
 ```
 cordova plugin add /Users/mrd/Documents/github/cordova-plugin-shareSDK --variable MOB_APP_KEY=MOB申请的APPKEY --variable QQ_APP_ID_ANDROID=QQ开放平台申请的Android的AppID --variable QQ_APP_KEY_ANDROID=QQ开放平台申请的Android的AppKey --variable QQ_APP_ID_IOS=QQ开放平台申请的iOS的AppID --variable QQ_APP_KEY_IOS=QQ开放平台申请的iOS的AppKey 
 ```
@@ -12,7 +12,7 @@ cordova plugin add /Users/mrd/Documents/github/cordova-plugin-shareSDK --variabl
 cordova plugin add /Users/mrd/Documents/github/cordova-plugin-shareSDK --variable MOB_APP_KEY=1cd68c2143e35 --variable QQ_APP_ID_ANDROID=1106092730 --variable QQ_APP_KEY_ANDROID=97YNpoJFo0xH5eLI --variable QQ_APP_ID_IOS=1106018997 --variable QQ_APP_KEY_IOS=i1tCJmiRPouSjhk7 
 ```
 
-## 初始化插件（注意：某些平台的iOS和Android中的AppKey和AppID有区别）
+## 初始化插件（注意：某些平台的iOS和Android中的AppKey和AppID有区别）：
 ```
 ShareSDK.init(mobAppkey,platformParam);
 ```
@@ -37,7 +37,7 @@ ShareSDK.init(mobAppkey,platformParam);
     }
 ```
 
-## 使用第三方登陆
+## 使用第三方登陆：
 ```
 ShareSDK.otherLogin(登陆类型);
 ```
@@ -46,3 +46,8 @@ ShareSDK.otherLogin(登陆类型);
 ```
 ShareSDK.otherLogin('QQ');
 ```
+
+---
+
+## 未来计划：
+### 陆续添加微博和微信的第三放登陆和分享，主要看公司需求
