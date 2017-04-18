@@ -6,6 +6,7 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 
@@ -20,7 +21,7 @@ import cn.sharesdk.tencent.qq.QQ;
 public class ShareSDK extends CordovaPlugin {
     private static final String TAG = "ShareSDK";
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         if(action.equals("init")){
             Log.d(TAG,"init");
             cn.sharesdk.framework.ShareSDK.initSDK(cordova.getActivity());
@@ -33,19 +34,24 @@ public class ShareSDK extends CordovaPlugin {
                     @Override
                     public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
                         Log.d(TAG,"登录成功");
+                        JSONObject userData = new JSONObject(hashMap);
+                        callbackContext.success(userData);
                     }
 
                     @Override
                     public void onError(Platform platform, int i, Throwable throwable) {
                         Log.d(TAG,"登录失败");
+                        callbackContext.error(i);
                     }
 
                     @Override
                     public void onCancel(Platform platform, int i) {
                         Log.d(TAG,"取消登陆");
+                        callbackContext.error(i);
                     }
                 });
-                QQPlatform.authorize();
+                QQPlatform.showUser(null);
+                return true;
             }
 
         }

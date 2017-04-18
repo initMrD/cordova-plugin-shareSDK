@@ -67,19 +67,28 @@
 - (void)otherLogin:(CDVInvokedUrlCommand*)command
 {
     NSLog(@"进入otherLogin");
+    NSString *callbackId = command.callbackId;
     NSString *loginTpye = command.arguments[0];
     NSLog(@"使用QQ第三方登陆%@",loginTpye);
+    NSLog(@"callbackid==========%@",callbackId);
     if([loginTpye isEqualToString:@"QQ"]){
-        [ShareSDK authorize:SSDKPlatformTypeQQ settings:nil onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error) {
+        [ShareSDK getUserInfo:SSDKPlatformTypeQQ onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error) {
             if(state == SSDKResponseStateSuccess){
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:user.uid, @"uid",
+                                          user.credential.token, @"credentialToken",
+                                          user.nickname, @"nickname",nil];
                 NSLog(@"uid=%@",user.uid);
                 NSLog(@"%@",user.credential);
                 NSLog(@"token=%@",user.credential.token);
                 NSLog(@"nickname=%@",user.nickname);
+                CDVPluginResult *result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:userInfo];
+
+                [self.commandDelegate sendPluginResult:result callbackId:callbackId];
             }else{
                 NSLog(@"%@",error);
             }
         }];
+
     }
 };
 

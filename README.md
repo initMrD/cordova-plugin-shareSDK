@@ -39,12 +39,14 @@ ShareSDK.init(mobAppkey,platformParam);
 
 ## 使用第三方登陆：
 ```
-ShareSDK.otherLogin(登陆类型);
+ShareSDK.otherLogin(登陆类型,成功之后的回调);
 ```
 
 ### 例如
 ```
-ShareSDK.otherLogin('QQ');
+ShareSDK.otherLogin('QQ', function (data) {
+                console.info(data);
+            });
 ```
 
 ---
