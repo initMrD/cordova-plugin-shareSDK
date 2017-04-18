@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
@@ -34,7 +35,11 @@ public class ShareSDK extends CordovaPlugin {
                     @Override
                     public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
                         Log.d(TAG,"登录成功");
-                        JSONObject userData = new JSONObject(hashMap);
+                        Map<String,String> userInfo = new HashMap<String, String>();
+                        userInfo.put("uid",platform.getDb().getUserId());
+                        userInfo.put("credentialToken",platform.getDb().getToken());
+                        userInfo.put("nickname",platform.getDb().getUserName());
+                        JSONObject userData = new JSONObject(userInfo);
                         callbackContext.success(userData);
                     }
 
