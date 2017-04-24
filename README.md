@@ -1,5 +1,6 @@
 # cordova-plugin-ShareSDK
 ### ShareSDK插件 主要针对第三方登陆这块内容,暂时只支持QQ
+>iOS环境需要安装cocoapod
 ## 授权申请：
 - Mob官网：http://www.mob.com/
 - QQ开放平台：http://open.qq.com/
