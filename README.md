@@ -6,11 +6,11 @@
 - QQ开放平台：http://open.qq.com/
 ## 安装插件：
 ```
-cordova plugin add /Users/mrd/Documents/github/cordova-plugin-shareSDK --variable MOB_APP_KEY=MOB申请的APPKEY --variable QQ_APP_ID_ANDROID=QQ开放平台申请的Android的AppID --variable QQ_APP_KEY_ANDROID=QQ开放平台申请的Android的AppKey --variable QQ_APP_ID_IOS=QQ开放平台申请的iOS的AppID --variable QQ_APP_KEY_IOS=QQ开放平台申请的iOS的AppKey 
+cordova plugin add https://github.com/initMrD/cordova-plugin-shareSDK.git --variable MOB_APP_KEY=MOB申请的APPKEY --variable QQ_APP_ID_ANDROID=QQ开放平台申请的Android的AppID --variable QQ_APP_KEY_ANDROID=QQ开放平台申请的Android的AppKey --variable QQ_APP_ID_IOS=QQ开放平台申请的iOS的AppID --variable QQ_APP_KEY_IOS=QQ开放平台申请的iOS的AppKey 
 ```
 ### 例如
 ```
-cordova plugin add /Users/mrd/Documents/github/cordova-plugin-shareSDK --variable MOB_APP_KEY=1cd68c2143e35 --variable QQ_APP_ID_ANDROID=1106092730 --variable QQ_APP_KEY_ANDROID=97YNpoJFo0xH5eLI --variable QQ_APP_ID_IOS=1106018997 --variable QQ_APP_KEY_IOS=i1tCJmiRPouSjhk7 
+cordova plugin add https://github.com/initMrD/cordova-plugin-shareSDK.git --variable MOB_APP_KEY=1cd68c2143e35 --variable QQ_APP_ID_ANDROID=1106092730 --variable QQ_APP_KEY_ANDROID=97YNpoJFo0xH5eLI --variable QQ_APP_ID_IOS=1106018997 --variable QQ_APP_KEY_IOS=i1tCJmiRPouSjhk7 
 ```
 
 ## 初始化插件（注意：某些平台的iOS和Android中的AppKey和AppID有区别）：
